@@ -1,0 +1,14 @@
+#!/bin/sh
+
+TYPE='(sh|c|h|java|js)'
+
+TMP=$(find $PWD -type f -name "*.*" | grep -E ."$TYPE"$)
+
+for i in $TMP
+do
+
+    sed -z -i 's/\n[ \n]*{\n*/{\n\n/g' $(echo $i)
+
+done
+
+exit 0;
